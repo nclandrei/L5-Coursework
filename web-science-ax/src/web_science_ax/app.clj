@@ -13,6 +13,10 @@
             repeat)
        csv-data))
 
+(defn filter-out-small-clusters [docMap]
+  "Filters out the clusters having less than 10 documents"
+  (flatten (filter (fn [[k v]] (> (count v) 10)) docMap)))
+
 (defn group-clusters [docMap]
   "Groups clusters by cluster_id"
   (group-by :cluster_id docMap))
@@ -24,8 +28,4 @@
 (defn add-centroid-times [docMap]
   "Creates a new map with key as centroid time and value as an array of
   the corresponding documents for that cluster"
-  )
-
-(defn filter-out-small-clusters [docMap]
-  "Filters out the clusters having less than 10 documents"
-  (filter (fn [[k v]] (> (count v) 10)) docMap))
+  (map (fn [[k v]] (replace k (compute-mean-time v))) docMap))
