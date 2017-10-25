@@ -19,7 +19,7 @@
 
 (defn compute-mean-time [docs]
   "Computes mean time for documents in a specific cluster"
-  (/ (reduce + (:timestamp_ms docs)) (count docs)))
+  (/ (reduce + (map (fn [x] (Long/parseLong x)) (map :timestamp_ms docs))) (count docs)))
 
 (defn add-centroid-times [docMap]
   "Creates a new map with key as centroid time and value as an array of
@@ -29,4 +29,3 @@
 (defn filter-out-small-clusters [docMap]
   "Filters out the clusters having less than 10 documents"
   (filter (fn [[k v]] (> (count v) 10)) docMap))
-
