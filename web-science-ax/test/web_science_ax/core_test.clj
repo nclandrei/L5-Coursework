@@ -1,6 +1,6 @@
 (ns web-science-ax.core-test
   (:require [clojure.test :refer :all]
-            [web-science-ax.core :refer :all]))
+            [web-science-ax.app :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

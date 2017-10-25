@@ -1,4 +1,4 @@
-(ns web-science-ax.core)
+(ns web-science-ax.app)
 
 (defn foo
   "I don't do a whole lot."
