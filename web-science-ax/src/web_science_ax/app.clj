@@ -1,5 +1,6 @@
 (ns web-science-ax.app
   (:require [clojure.data.csv :as csv]
+            [clojure.set :as set]
            [clojure.java.io :as io]))
 
 (def csvKeys [:cluster_id :cluster_name_entity
@@ -15,7 +16,7 @@
 
 (defn filter-out-small-clusters [docMap]
   "Filters out the clusters having less than 10 documents"
-  (flatten (filter (fn [[k v]] (> (count v) 10)) docMap)))
+  (into {} (filter (fn [[k v]] (> (count v) 10)) docMap)))
 
 (defn group-clusters [docMap]
   "Groups clusters by cluster_id"
@@ -23,9 +24,9 @@
 
 (defn compute-mean-time [docs]
   "Computes mean time for documents in a specific cluster"
-  (/ (reduce + (map (fn [x] (Long/parseLong x)) (map :timestamp_ms docs))) (count docs)))
+  (double (/ (reduce + (map (fn [x] (Long/parseLong x)) (map :timestamp_ms docs))) (count docs))))
 
 (defn add-centroid-times [docMap]
   "Creates a new map with key as centroid time and value as an array of
   the corresponding documents for that cluster"
-  (map (fn [[k v]] (replace k (compute-mean-time v))) docMap))
+  (set/rename-keys docMap (zipmap (keys docMap) (map (fn [[k v]] (compute-mean-time v)) docMap))))
