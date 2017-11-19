@@ -6,7 +6,7 @@
 (def csvKeys [:cluster_id :cluster_name_entity
            :tweet_id :timestamp_ms :user_id :tweet_tokens :tweet_text])
 
-(defn csv-data->maps [csv-data]
+(defn read-csv->maps [csv-data]
   "Reads in a CSV file and outputs a map with the keys defined in csvKeys"
   (map zipmap
        (->> csvKeys
@@ -14,9 +14,15 @@
             repeat)
        csv-data))
 
-(defn filter-out-small-clusters [docMap]
-  "Filters out the clusters having less than 10 documents"
-  (into {} (filter (fn [[k v]] (> (count v) 10)) docMap)))
+(defn write-maps->csv [docMap to]
+  (with-open [writer (io/writer to)]
+  "Writes map back to a new csv"
+  (->> (map #(vals %) (flatten (vals docMap)))
+       (csv/write-csv writer))))
+
+(defn filter-out-small-clusters [docMap numberOfTweets]
+  "Filters out the clusters having less tweets than numberOfTweets"
+  (into {} (filter (fn [[k v]] (> (count v) numberOfTweets)) docMap)))
 
 (defn group-clusters [docMap]
   "Groups clusters by cluster_id"
@@ -26,15 +32,7 @@
   "Computes mean time for documents in a specific cluster"
   (double (/ (reduce + (map (fn [x] (Long/parseLong x)) (map :timestamp_ms docs))) (count docs))))
 
-(defn write-maps->csv [docMap to]
-  (with-open [writer (io/writer to)]
-  "Writes map back to a new csv"
-  (->> (map #(vals %) (flatten (vals docMap)))
-       (csv/write-csv writer))))
-
-;(defn add-centroid-times [docMap]
-;  "Creates a new map with key as centroid time and value as an array of
-;  the corresponding documents for that cluster"
-;  (set/rename-keys docMap (zipmap (keys docMap) (map (fn [[k v]] (compute-mean-time v)) docMap))))
-
-
+(defn add-centroid-times [docMap]
+  "Creates a new map with key as centroid time and value as an array of
+  the corresponding documents for that cluster"
+  (set/rename-keys docMap (zipmap (keys docMap) (map (fn [[k v]] (compute-mean-time v)) docMap))))
