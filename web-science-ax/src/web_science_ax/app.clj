@@ -26,7 +26,15 @@
   "Computes mean time for documents in a specific cluster"
   (double (/ (reduce + (map (fn [x] (Long/parseLong x)) (map :timestamp_ms docs))) (count docs))))
 
-(defn add-centroid-times [docMap]
-  "Creates a new map with key as centroid time and value as an array of
-  the corresponding documents for that cluster"
-  (set/rename-keys docMap (zipmap (keys docMap) (map (fn [[k v]] (compute-mean-time v)) docMap))))
+(defn write-maps->csv [docMap to]
+  (with-open [writer (io/writer to)]
+  "Writes map back to a new csv"
+  (->> (map #(vals %) (flatten (vals docMap)))
+       (csv/write-csv writer))))
+
+;(defn add-centroid-times [docMap]
+;  "Creates a new map with key as centroid time and value as an array of
+;  the corresponding documents for that cluster"
+;  (set/rename-keys docMap (zipmap (keys docMap) (map (fn [[k v]] (compute-mean-time v)) docMap))))
+
+
