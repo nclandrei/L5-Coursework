@@ -1,4 +1,4 @@
-(ns web-science-ax.util)
+(ns event_detection.util)
 
 (defn remove-small-clusters [docMap numberOfTweets]
   "Filters out the clusters having less tweets than numberOfTweets"

@@ -1,6 +1,6 @@
-(ns web-science-ax.core-test
+(ns event-detection.core_test
   (:require [clojure.test :refer :all]
-            [web-science-ax.app :refer :all]))
+            [event_detection.app :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

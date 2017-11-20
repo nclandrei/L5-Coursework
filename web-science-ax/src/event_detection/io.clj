@@ -1,4 +1,4 @@
-(ns web-science-ax.io
+(ns event_detection.io
   (:require [clojure.java.io :as io]
             [clojure.data.csv :as csv]))
 
