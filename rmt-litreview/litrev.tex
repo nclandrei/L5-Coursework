@@ -16,8 +16,8 @@
 
 \begin{document}
 
-\setlength{\oddsidemargin}{0.9847in-1in}
-\setlength{\textwidth}{\paperwidth - 0.9847in-0.9847in}
+% \setlength{\oddsidemargin}{0.9847in-1in}
+% \setlength{\textwidth}{\paperwidth - 0.9847in-0.9847in}
   
 \maketitle
 
@@ -75,9 +75,9 @@
     \begin{itemize}
       % TODO: add here why these papers are considered key papers in
       % the field
-      \item the work of \citet{oman1992metrics} - ;
-      \item the research presented by \citet{pfleeger1990framework} - ;
-      \item and the work of \citet{li1993maintenance} - ;
+      \item one-page summary of \citet{oman1992metrics} - ;
+      \item one-page summary of \citet{pfleeger1990framework} - ;
+      \item in-depth review of \citet{li1993maintenance} - ;
     \end{itemize}
 
 \section{The work of \cite{li1993maintenance}}
@@ -95,14 +95,16 @@
  \end{center}
 
 \subsection{Summary}
- The object oriented paradigm is one of the most popular approaches to developers
- software in the modern world. However, most studies that analyzed software 
- metrics in order to assess both the software development process and the
- quality of the application focused solely on the procedural paradigm. 
- The research presented here tried to inspect what metrics make for a easily
- maintainable software project developed using the object oriented paradigm.
 
-\subsection{Problem Solved}
+The object oriented paradigm is one of the most popular approaches to developers
+software in the modern world. However, most studies that analyzed software 
+metrics in order to assess both the software development process and the
+quality of the application focused solely on the procedural paradigm. 
+The research presented here tried to inspect what metrics make for a easily
+maintainable software project developed using the object oriented paradigm.
+
+\subsection{Problem Statement}
+
 Software maintenance consumes large amounts of company resources and it is
 one of the costliest processes that revolve around software development.
 As software systems started to emerge worldwide, the first paradigm that
@@ -115,8 +117,92 @@ implementing their approach and analysing the data from 2 commercial systems,
 they reached the conclusion that the metrics proposed are good predictors
 for maintenance effort.
 
+\subsection{Contributions}
+
+The paper presented brings several contributions to the software maintenance
+research area. 
+
+The first one is that it takes metrics developed by \citet{chidamber1994metrics} 
+and analyses their suitability for object-oriented software applications in the 
+context of measuring software maintainability. The second one is that it proposes 
+several other object-oriented metrics and, lastly and probably most importantly, it 
+uses all these metrics and validates them on real-world commercial systems. 
+As most previous work was performed on software implemented using
+the procedural paradigm, the work of \citet{li1993maintenance} is a novel research
+and brings valuable contributions to the field.
+
 \subsection{Approach}
 
+Their approach was to select a number of metrics from the work of 
+\citet{chidamber1994metrics} and test them on the software projects in 
+order to examine whether they are good predictors for maintenance efforts 
+or not. The selected metrics are:
+
+ \begin{itemize}
+  \item Depth of Inheritance Tree - the position of the class in the inheritance tree;
+  \item Response for Class - sum of number of local methods and methods calling these
+    local methods;
+  \item Lack of Cohesion of Class - overall number of disjoint sets composed of 
+    local methods;
+  \item Weighted Method per Class - summation of the McCabe's cyclomatic complexity
+    of all local methods;
+  \item Number of Children - number of direct subclasses.
+ \end{itemize}
+
+Afterwards, the authors developed their own several other metrics to be used in the 
+evaluation process:
+
+ \begin{itemize}
+  \item Message Passing Coupling - total number of sends in a class;
+  \item Data Abstraction Coupling - number of Abstract Data Types in a class;
+  \item Number of Methods - total number of local methods in a class;
+  \item SIZE1 - total number of semicolons in a class;
+  \item SIZE2 - sum of total number of attributes and total number of local methods 
+    in a class.
+ \end{itemize}
+
+In the end, they evaluated all metrics on two commercial systems in order to check
+whether they are good predictors for software maintainability.
+
+\subsection{Methodology}
+
+They applied their evaluation on software implemented in Classic-Ada 
+Design/Programming Language. The maintenance effort data was collected from
+2 commercial systems called UIMS (i.e. User Interface Management System)
+and QUES (QUality Evaluation System) over a period of three years. The 
+maintenance effort is measured by the number of lines changed per class.
+
+The authors then conducted a series of three analyses on the systems in order
+to determine two factors: whether the maintenance effort can be predicted from the
+metrics and whether the size metrics are the most important predictors.
+
+The first analysis used as a dependent variable \emph{change} and \emph{all metrics}
+as independent variables. The question that this analysis wanted to answer was if 
+the object oriented metrics under investigation are good predictors. It was designed
+as a regression model which measured R-Square values (i.e. regression quality
+indicator measuring the quality of predictions) and the p-value (i.e. regression
+significance).
+
+The second analysis was again a regression model testing for the same dependent 
+variable and the same values (i.e. R-Square and p-value), but the independent 
+variables were only the SIZE1 and SIZE2 metrics. This analysis was targeted to 
+complement the first analysis in finding the effect of size metrics on overall 
+prediction.
+
+The third and final analysis was aimed at finding whether size metrics can be used
+in isolation and outperform the full model (i.e. using all metrics). The authors
+tested 2 hypotheses: the \emph{null hypothesis} was that there is no difference 
+between the size-only model and full model, while the alternative hypothesis was
+proposing there is actually a difference between the models. The analysis looked at
+Partial F and F critical values for both systems.
+
+\subsection{Outcomes}
+
+After running the evaluation, the authors reached the conclusion that predicting
+software maintainability from the proposed metrics is possible. Moreover, the size
+metrics (i.e. SIZE1 and SIZE2), even though they are not the main contributors to
+overall prediction, they account for a large portion. Finally, another conclusion
+the research presents is that the proposed metrics are good predictors.
 
 \subsection{Related Work}
 One of the fields related to what the authors are trying to achieve in this
@@ -130,13 +216,18 @@ the procedural paradigm, some of which are mentioned in the paper:
   \item \citet{mccabe1976complexity} cyclomatic metrics;
   \item \citet{adamov1990proposal} hybrid metrics.
  \end{itemize}
-As the authors were performing a novel research at the time, there is no
-related work similar to what they have examined, except procedural paradigms
-software.
-
-\subsection{Methodology}
+As the authors were performing a relatively novel research at the time, 
+there was little related work similar to what they have examined. However,
+the work of \citet{chidamber1994metrics} is recognized as the primary
+source of metrics used in the authors' research.
 
 \subsection{Conclusions}
+Even though the authors admit the biggest limitation of the study, which is
+that they ran evaluations only on two commercial systems, they conducted their research
+in a novel topic and reached conclusions that helped following studies. Moreover, 
+as object-oriented is one of the most embraced programming paradigms nowadays and 
+software maintenance efforts are one of the costliest processes in companies, the
+research is a key paper in the field and brings valuable findings, useful even now.
  
 \section{The work of Pfleeger and Bohner}
 
