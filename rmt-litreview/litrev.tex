@@ -5,6 +5,7 @@
 \usepackage{fixltx2e}
 \usepackage{graphicx}
 \usepackage{multicol}
+\usepackage{amsmath}
 
 \usepackage{natbib}
 \usepackage{color}
@@ -291,12 +292,28 @@ There are also other studies linked in the paper that try to perform a similar a
 among which we can find the work of \citet{basili1983empirical}, 
 \citet{peercy1981software}, \citet{selby1989software} or \citet{kafura1987use}.
 
-Furthermore, 
-
+Furthermore, there are several tools which have used the metrics proposed by the
+authors in order to calculate maintainability indexes, such as the work of
+\citet{omen1992construction}.
 
 \subsection{Methodology}
 
+After defining the attributes tree-like structure, the authors proposed
+a model to unify them and create a universal maintainability score. Then,
+they created tools in order to evaluate their metrics on software projects,
+such as polynomials for predicting maintainability, a prototype source code
+analyzer that calculates maintainability scores for source code written in
+C or Pascal and a spreadsheet implementation that inspects attributes which
+can not be measured.
+
 \subsection{Conclusions}
+
+This key paper is of great importance to the field of software maintainability
+due to its analysis of multiple metrics collected from various previous studies.
+Thus, it is not only a proposal for new metrics, but also an analysis of 
+previously developed ones and how they fit in the software context. This paper
+is still of relevance today due to its comprehensive tree-like structure of 
+attributes, thus making it valuable for future studies as well.
 
 \section{The work of \cite{pfleeger1990framework}}
 
