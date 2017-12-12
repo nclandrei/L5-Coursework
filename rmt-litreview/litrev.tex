@@ -1,4 +1,4 @@
-\documentclass[a4paper,portrait,12pt]{article}
+\documentclass[a4paper,12pt]{article}
 \usepackage[latin1]{inputenc}
 \usepackage{calc}
 \usepackage{setspace}
@@ -16,9 +16,6 @@
 \title{Measuring Software Maintainability}
 
 \begin{document}
-
-% \setlength{\oddsidemargin}{0.9847in-1in}
-% \setlength{\textwidth}{\paperwidth - 0.9847in-0.9847in}
   
 \maketitle
 
@@ -320,33 +317,86 @@ attributes, thus making it valuable for future studies as well.
  \begin{center}
    \begin{tabular}{ | l | r | }
     \hline
-    \parbox[t]{5cm}{Title: Metrics for Assessing a Software System's
-                    \\  Maintainability} 
+    \parbox[t]{5cm}{Title:  A framework for software maintenance
+                    \\ metrics} 
      & Name: Andrei-Mihai Nicolae \\ 
      \hline
-     Author[s]: Paul Oman, Jack Hagemeister & Matric number: 2147392 \\
+     \parbox[t]{5cm}{Author[s]: Shari Lawrence Pfleeger,
+                    \\ Shawn A Bohner} 
+      & Matric number: 2147392 \\
     \hline
    \end{tabular}
  \end{center}
 
 \subsection{Summary}
 
+The maintenance models that have been proposed previous to this study
+did not look neither into impact analysis nor into how to enhance the
+productivity of software maintainers. Moreover, constraints, resource
+allocation or team organization can also drastically affect the
+maintenance process of a software product. 
 
+Thus, the authors are proposing a framework for defining valuable
+metrics for computing a software maintainability index, making the
+whole process easier to manage for both developers and management 
+employees.
 
 \subsection{Problem Solved}
 
+The paper presents a framework that emphasizes impact analysis 
+(i.e. effect changes have on a product) and delivers valuable 
+metrics that can enhance the maintenance process.
+
 \subsection{Approach}
+
+The model the research is proposing focuses on change and what
+effect it has on a software product. The authors are trying to 
+create vertical and horizontal graph structures that enhance
+traceability among software components, thus making changes and 
+their impact less destructive on the product.
 
 \subsection{Related Work}
 
+There are various methodologies implemented previous to this research,
+among which we can name the work of \citet{horqwitz1986sodos} or
+\citet{penedo1984integrated}. These approaches have actually been
+implemented in real world systems and provided valuable insight for
+the authors.
+
+Moreover, there are several maintenance models that have been 
+linked in the paper, among which there is the research of 
+\citet{martin1983software} (very similar to this research, it tried
+to validate metrics for measuring software maintainability) or
+the work of \citet{sharpley1977software}, which had a rather different
+focus - looked at problem verification, problem diagnosis, reprogramming
+and baseline reverification.
+
 \subsection{Methodology}
+
+After defining the metrics they wanted to analyze and devising the
+workproducts into different categories, the authors implemented
+horizontal and vertical traceability graphs that could lead them to
+metrics that were the most important to defining an index for 
+software maintainability.
 
 \subsection{Conclusions}
 
+The proposed approach presented in this research, being algorithmic
+and automatable, can be easily implemented in organizations that would
+like to conduct impact analysis and how it affects the overall cost.
+Thus, the framework proposed by the authors can heavily improve
+costs and maintenance efforts for both companies and 
+developers/maintainers.
+
 \section{Conclusions}
 
-Weigh up the balance of evidence and arguments you have reviewed to say which
-positions seem to have the greater empirical and or logical support.
+Having discussed various approaches to measuring and evaluating 
+software maintainability, we can draw the conclusion that the field
+is of great importance to the software industry and research. Moreover,
+even though all studies have their own limitations, there is still
+room for improvement, much already undergone by more recent papers
+that are based on the findings presented in the papers in this 
+literature review.
 
 \bibliographystyle{plainnat}
 \bibliography{bibliography}
