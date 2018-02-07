@@ -103,23 +103,226 @@ in tickets through \emph{statistical analysis} on multiple large-scale open sour
 \label{sec:label-subsection}
 %-------------------------------------------
 
-This literature review presents the most relevant papers in the field. Section 
-\ref{sec:data-quality} looks at data quality and metrics in the software development area, 
-such as data quality-related methodologies that help organizations develop beneficial 
-data workcycles; Section \ref{sec:ticket-quality} presents previous work on the field my 
-research focuses on, while Section \ref{sec:measuring-waste} presents findings related 
-to measuring waste and cost in software projects, such as miscommunication among team 
-members and what impact does that have on the organization.
+This literature review presents the most relevant papers in the fields that surround the
+area of software ticket quality. Section \ref{sec:data-quality} looks at data quality and 
+metrics in the software development area, such as data quality-related methodologies that 
+help organizations develop beneficial data workcycles; Section \ref{sec:ticket-quality} presents 
+previous work on the field my research focuses on, while Section \ref{sec:measuring-waste} 
+presents findings related to measuring waste and cost in software projects, such as 
+miscommunication among team members and what impact does that have on the organization.
 
 %====================================================
 \section{Data Quality and Metrics}
 \label{sec:data-quality}
 %====================================================
 
+Several authors have investigated the \emph{meaning} of data quality and
+what characteristics define it.
+
+\cite{bachmann2009software} conducted a thorough investigation of several
+software projects, both open source (5 projects) as well as closed source (1 
+project), in order to infer what determines their quality. They selected 
+various sources of information, among which bug tracking 
+databases and version control systems logs, and examined SVN logs, CVS logs
+and the content of the bug tracker databases, in the end trying to link 
+the logs with the bug tracker contents as they are not integrated by default. 
+A different approach was taken by \cite{strong1997data} who conducted a qualitative analysis
+instead of quantitative by collecting data from 42 data quality projects by 
+interviewing custodians, customers and managers. They analyzed each project
+using the data quality dimensions as content analysis codes.
+
+The first study came to several conclusions, among which:
+  \begin{itemize}
+    \item closed source software projects usually exhibit better data quality 
+    (i.e. better average number of attachments, better average status changes, 
+    better average number of commits per bug report);
+    \item reduced traceability between bug reports and version control logs
+    due to scarce linkage between the two;
+    \item open source projects exhibit reduced quality in change logs as,
+    for example, the Eclipse project has over 20\% empty commit messages.
+  \end{itemize}
+
+However, the second study reached the conclusion that representational data 
+quality dimensions are underlying causes of accessibility data quality problem
+patterns. The authors also found out that three underlying causes for users'
+complaints regarding data not supporting their tasks are incomplete data, 
+inadequately defined or measured data and data that could not be appropriately
+aggregated.
+
+The work of \cite{kitchenham1996software} looks specifically at defining
+quality in a software project, as well as finding who the people in charge of this 
+are and how they should approach achieving it. They tried to define quality 
+in software projects and analyze techniques that measure such metrics by looking
+at other models proposed in different researches, such as McCall's quality
+model or ISO 9126. However, they learned that quality is very hard to define and
+there are various factors which need to be taken into consideration, such as the
+business model of the company, the type of the software project (e.g. safety 
+critical, financial sector) or the actors who are involved and how they coordinate
+the software activities.
+
+One other piece of data that is probably the most crucial in a software project
+is code, and \cite{stamelos2002code} tried to discuss and examine the quality
+of the source code delivered by open source projects. They used a set of tools
+that could automatically inspect various aspects of source code, looking at
+the 6th release of the OpenSUSE project and its components defined by C
+functions. The results show that Linux applications have high quality 
+code standards that one might expect in an open source repository, but 
+the quality is lower than the one implied by the standard. More than half
+of the components were in a high state of quality, but on the other hand, 
+most lower quality components cannot be improved only by applying some
+corrective actions. Thus, even though not all the source code was in 
+an industrial standards shape, there is definitely room for further 
+improvement and open source repositories proved to be of good quality.
+
+After defining what data quality is and its characteristics, the next 
+step would be data measurement or information quality in a project. 
+There are several research papers that try to find the answer, among which the 
+work of \cite{lee2002aimq}. The authors tried to define an overall model along 
+with an accompanying assessment instrument for quantifying information quality 
+in an organization. The methodology has 3 main steps that need to be followed 
+in order to apply it successfully:
+  \begin{itemize}
+    \item 2 $\times$ 2 model of what information quality means to managers;
+    \item questionnaire for measuring information quality along the dimensions
+    found in first step;
+    \item two analysis techniques for interpreting the assessments captured 
+    by the questionnaire.
+  \end{itemize} 
+After developing the technique, they applied it in 5 different organizations and
+found that the tool proved to be practical.
+
+Compared to the methodology proposed by \cite{lee2002aimq}, the solution found
+by \cite{Heinrich2007MetricsDataQuality} is quite different. Even though the 
+main goals were the same, the authors used a single metric, and that is 
+the metric for timeliness (i.e. whether the values of attributes still 
+correspond to the current state of their real world counterparts and whether 
+they are out of date). Thus, they applied the metric at a major German mobile 
+services provider. Due to some Data Quality issues the company was having, they 
+had lower mailing campaign success rates, but after applying the metrics, the 
+company was able to establish a direct connection between the results of
+measuring data quality and the success rates of campaigns.
+
 %====================================================
 \section{Ticket Quality}
 \label{sec:ticket-quality}
 %====================================================
+
+Issue quality is the main topic of this literature review as it revolves around
+software tickets and the characteristics of a well-written and 
+informative bug report, how efficient are bug tracking systems, what defines
+an efficient bug triaging process etc. 
+
+The first and most important sub-topic of issue quality, which is the one
+we will address in our own research as well, is the quality of bug reports.
+There are several authors that have tried to defined what makes for a good bug
+report and what components actually improve the overall quality.
+
+\cite{bettenburg2008makes} analyzed what 
+makes for a good bug report through qualitative analysis. They interviewed over
+450 developers and asked them what are the most important features for them in
+a bug report that help them solve the issue quicker. They reached the conclusion 
+that stack traces and steps to reproduce increased the quality of a bug report 
+the most, followed by well-written, grammar error free summaries and 
+descriptions. Last but not least, they also created a tool called CueZilla that 
+could with an accuracy rate between 31 and 48\% predict the quality of a bug 
+report. 
+
+Strengthening the argument that readability matters considerably in bug report 
+quality is the work of \cite{hooimeijer2007modeling}. They ran an analysis over
+27000 bug reports from the Mozilla Firefox project, looking at self-reported 
+severity, readability, daily load, submitter reputation and changes over time. 
+After running the evaluation, they not only found out about the importance of
+readability in bug reports, but also that attachment and comment counts are 
+valuable for faster triaging and that patch count, for example, does not
+contribute in the same manner as the previous two.
+
+Another research that agrees that stack traces are helpful in solving bug
+reports faster is the one performed by \cite{schroter2010stack}. They conducted
+the whole experiment on the Eclipse project. They first extracted the stack
+traces using the infoZilla tool\cite{bettenburg2008extracting}, followed by
+linking the stack traces to changes in the source code (change logs) by mining
+the version repository of the Eclipse project. The results showed that 
+around 60\% of the bugs that contained stack traces in their reports were fixed
+in one of the methods in the frame, with 40\% being fixed in exactly the first
+stack frame.
+
+After examining the work of \cite{bettenburg2007quality}, we noticed that
+the authors found very similar results to the ones presented in the research of \cite{bettenburg2008makes}. 
+They performed the same type of evaluation method (i.e. 
+interviews with developers) and confirmed that steps to reproduce and stack traces
+are the most important features in a bug report that help developers solve the
+issue quicker.
+
+Other interesting findings regarding the quality of a software project's tickets
+are the ones elicited in \cite{bettenburg2008duplicate}. The authors examined
+whether duplicate bug reports are actually harmful to a project or they add 
+quality. They collected big amount of data from the Eclipse project and ran
+various kind of textual and statistical analysis on the data to find answers.
+They reached the conclusion that bug duplicates contain information that is not
+present in the master reports. This additional data can be helpful for developers
+and it can also aid automated triaging techniques.
+
+However, in order to model the quality of a bug report, one needs to be able to
+successfully extract various types of information from such a report and, if 
+possible, link them to the source code of the project (i.e. source code fragments
+in bug report discussions should be linked to the corresponding sections in the 
+actual code) or other software artifacts. There are several researches that tried 
+to analyze such techniques and one of them is the work of 
+\cite{bettenburg2012using}. The authors created a tool that could parse a bug 
+report (using fuzzy code search) and extract source code that could then be
+matched with exact locations in the source code, in the end producing a 
+traceability link (i.e. tuple containing a clone group ID and file paths 
+corresponding to the source code files). Evaluation showed an increase of
+roughly 20\% in total traceability links between issue reports and source code 
+when compared to the current state-of-the-art technique, change log analysis.
+
+\cite{bettenburg2012using} also made use of a tool developed by 
+\cite{bettenburg2008extracting} called infoZilla. This application can
+parse bug reports and correctly extract patches, stack traces, source code and
+enumerations. When evaluating it on over 160.000 Eclipse bug reports, it proved to 
+have a very high rate of over 97\% accuracy.
+
+However, \cite{kim2013should} propose a rather different technique than the one
+exposed in \cite{bettenburg2012using}. The authors employed a two-phase
+recommendation model that would locate the necessary fixes based on information
+in bug reports. Firstly, they did a feature extraction on the bug reports (e.g. 
+extract description, summary, metadata). Then, in order to successfully predict
+locations, this model was trained on collected bug reports and then, when given
+a new bug report, it would try to localize the files that need to be changed 
+automatically. Finally, the actual implementation was put into place, and that
+is the two phase recommendation model, composed of binary (filters out 
+uninformative bug reports before predicting the files to fix) and multiclass (
+previously filtered bug reports are used as training data and only after that
+new bug reports can be analyzed and files to be changed recommended). The 
+overall accuracy was above the one achieved by \cite{bettenburg2012using}, 
+being able to rank over 70\%, but only as long as it recommended \emph{any} 
+locations.
+
+One other type of information that could be extracted and used for valuable
+purposes is the summary of a bug report, as shown in the work of 
+\cite{rastkar2010summarizing}. The authors wanted to determine if bug reports
+could be summarized effectively and automatically so that developers would
+need only analyze summaries instead of full tickets. Firstly, they asked
+university students to volunteer to annotate the bug reports collected from
+various open sources projects (i.e. Eclipse, Mozilla, Gnome, KDE) by writing
+a summary of maximum 250 words in their own sentences. These human-produced 
+annotations were then used by algorithms to learn how to effectively summarize a 
+bug report.  Afterwards, the authors asked the end users of these bug reports, the 
+software developers, to rate the summaries against the original bug reports.
+They eventually learned that existing conversation-based extractive summary
+generators trained on bug reports produce the best results.
+
+Having discussed automated linkage between source code files and bug reports, 
+\cite{fischer2003analyzing} presents a way to track certain features from the
+data residing in tickets. The authors employed a method to track features by 
+analyzing and relating bug report data filtered from a release history database.
+Features are then instrumented and tracked, relationships of modification and 
+problem reports to these features are established, and tracked features are
+visualized to illustrate their otherwise hidden dependencies. They managed to 
+successfully visualize the tracked features and illustrate their non apparent
+dependencies which can prove very useful in projects with a large number of
+components.
+
 
 %====================================================
 \section{Measuring Cost and Waste in Software Projects}
