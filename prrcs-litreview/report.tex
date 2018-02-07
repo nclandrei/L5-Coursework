@@ -48,29 +48,83 @@
 \titleformat*{\paragraph}{\itshape}{}{}{}
 %% --------------------------------------------------------------------------------------------------------------------------------
 \begin{document}
-\title{This is the title}
+\title{Measuring Quality in Software Tickets using Statistical Analysis}
 
-\author{Author}
+\author{Andrei-Mihai Nicolae}
 \date{}
 \maketitle
 
-
 %====================================================
-%\section{Track Record}
-%====================================================
-
-
-%====================================================
-\section{Section Title}
-\label{sec:label-section}
+\section{Introduction}
+\label{sec:Introduction}
 %====================================================
 
+Software engineering, compared to many other engineering fields, is more
+abstract \cite{brooks1995mythical} - in mechanical engineering, for example,
+if one wishes to see what is wrong with the engine, the components can be 
+touched and manipulated directly by the human operator. However, when taking the example of
+compiling and running a simple program written in a language, such as Go 
+\cite{golang}, we go through various layers of abstraction which cannot be directly 
+seen by the developer: the written characters inside the file get compiled by the
+Go compiler to machine readable code; then, the operating system instructs the 
+kernel to run the newly generated machine code, which in turn communicates with 
+the hardware components responsible for carrying out the necessary computations.
+
+Therefore, having discussed the complex abstraction usually involved in software development,
+it is not a trivial task to plan and create applications that fit the requirements of the
+stakeholders. Thus, developers have come up with \emph{issue tracking systems}, applications
+which help teams plan work, create and assign tasks, monitor progress etc. The basic unit of
+functionality these systems make use of is called a \emph{ticket}, which can be usually split
+into two main categories: bug reports and feature requests. These software tickets can include 
+various types of information, such as:
+\begin{itemize}
+	\item textual description of the issue/proposed work;
+	\item stacktraces that describe the error occured while using the application;
+	\item attachments which support the bug report's existence;
+	\item story points (i.e. difficulty assigned for that specific ticket, such as 
+	how many hours might take a developer to fix it).
+\end{itemize}
+
+However, a still unresolved problem arises: what are the \emph{key 
+elements} that need to be included when creating a ticket? What makes for a good quality ticket
+and how can we measure that quality? Does including a stacktrace help developers fix a bug 
+faster rathen than including steps to reproduce the bug?
+
+There are research papers that looked into how to measure quality in software tickets. However,
+all of them have taken a qualitative approach through interviews and questionnaires with
+developers. I believe that this approach does not fully address the problem and it does not provide
+conclusive results, mainly because in this particular scenario, following a quantitative approach
+rather than a qualitative one produces both larger volumes of data as well as unbiased results.
+Thus, my work is focused on finding the key elements that create quality
+in tickets through \emph{statistical analysis} on multiple large-scale open source projects.
 
 %-------------------------------------------
-\subsection*{Subsection Title}
+\subsection*{Report Structure}
 \label{sec:label-subsection}
 %-------------------------------------------
 
+This literature review presents the most relevant papers in the field. Section 
+\ref{sec:data-quality} looks at data quality and metrics in the software development area, 
+such as data quality-related methodologies that help organizations develop beneficial 
+data workcycles; Section \ref{sec:ticket-quality} presents previous work on the field my 
+research focuses on, while Section \ref{sec:measuring-waste} presents findings related 
+to measuring waste and cost in software projects, such as miscommunication among team 
+members and what impact does that have on the organization.
+
+%====================================================
+\section{Data Quality and Metrics}
+\label{sec:data-quality}
+%====================================================
+
+%====================================================
+\section{Ticket Quality}
+\label{sec:ticket-quality}
+%====================================================
+
+%====================================================
+\section{Measuring Cost and Waste in Software Projects}
+\label{sec:measuring-waste}
+%====================================================
 
 \let\oldbibliography\thebibliography
 \renewcommand{\thebibliography}[1]{\oldbibliography{#1}
@@ -80,6 +134,6 @@
 %\setstretch{0.8}
 {
 \scriptsize
-\bibliography{bib_file}
+\bibliography{report}
 }
 \end{document}
