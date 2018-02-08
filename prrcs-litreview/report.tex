@@ -48,9 +48,9 @@
 \titleformat*{\paragraph}{\itshape}{}{}{}
 %% --------------------------------------------------------------------------------------------------------------------------------
 \begin{document}
-\title{Automatic Contextual Bug Report Models}
+\title{Automatic Contextual Bug Report Modelling}
 
-\author{Andrei-Mihai Nicolae}
+\author{Andrei-Mihai Nicolae (2147392)}
 \date{}
 \maketitle
 
@@ -116,7 +116,8 @@ metrics in the software development area, such as data quality-related methodolo
 help organizations develop beneficial data workcycles; Section \ref{sec:ticket-quality} presents 
 previous work on defining what are the key elements that make for good quality tickets
 in a specific context, while Section \ref{sec:bug-report} presents previous work on
-the field that my research is based on (i.e. modelling the bug reports efficiently).
+the field that my research is based on (i.e. modelling the bug reports efficiently), 
+as well as what could be improved about issue tracking systems.
 Finally, Section \ref{sec:conclusion} presents conclusions drawn after completing the 
 literature survey and possible future directions of the research.
 
@@ -128,7 +129,7 @@ literature survey and possible future directions of the research.
 Several authors have investigated the \emph{meaning} of data quality and
 what characteristics define it.
 
-Bachman et al.\cite{bachmann2009software} conducted a thorough investigation of several
+Bachman et al. \cite{bachmann2009software} conducted a thorough investigation of several
 software projects, both open source as well as closed source, in order 
 to infer what determines their quality. They selected 
 various sources of information, among which bug tracking 
@@ -144,7 +145,7 @@ The study came to several conclusions, among which:
     \item there is reduced traceability between bug reports and version control logs.
   \end{itemize}
 
-A different approach was taken by Strong et al.\cite{strong1997data} who conducted a qualitative analysis
+A different approach was taken by Strong et al. \cite{strong1997data} who conducted a qualitative analysis
 instead of quantitative by collecting data from a large number of data quality projects by 
 interviewing custodians, customers and managers. They analyzed each project
 using the data quality dimensions as content analysis codes.
@@ -170,31 +171,11 @@ corrective actions.
 Having defined what data quality is and what are its characteristics, I needed
 to research what are some methodologies that help measure it efficiently.
 There are several research papers that present such methodologies, among which the 
-work of \cite{lee2002aimq}. The authors tried to define an overall model along 
+work of Lee et al. \cite{lee2002aimq}. The authors tried to define an overall model along 
 with an accompanying assessment instrument for quantifying information quality 
-in an organization. The methodology has 3 main steps that need to be followed 
-in order to apply it successfully:
-  \begin{itemize}
-    \item 2 $\times$ 2 model of what information quality means to managers;
-    \item questionnaire for measuring information quality along the dimensions
-    found in first step;
-    \item two analysis techniques for interpreting the assessments captured 
-    by the questionnaire.
-  \end{itemize} 
-In the end, the authors applied their proposed methodology to multiple organizations
-and found out that it is practical and it could be used on a wider scale in the 
-industry.
-
-In contrast to the methodology proposed by \cite{lee2002aimq}, the solution found
-by \cite{Heinrich2007MetricsDataQuality} is different - even though the 
-main goals were the same, the authors used a single metric, and that is 
-the metric for timeliness (i.e. whether the values of attributes still 
-correspond to the current state of their real world counterparts and whether 
-they are out of date). Thus, they applied the metric at a major German mobile 
-services provider. Due to some Data Quality issues the company was having, they 
-had lower mailing campaign success rates, but after applying the metrics, the 
-company was able to establish a direct connection between the results of
-measuring data quality and the success rates of campaigns.
+in an organization. In the end, the authors applied their proposed methodology 
+to multiple organizations and found out that it is practical and it could be used 
+on a wider scale in the industry.
 
 %====================================================
 \section{Ticket Quality}
@@ -211,74 +192,64 @@ I will address in my own research as well, is the quality of bug reports.
 There are several authors that have tried to defined what makes for a good bug
 report and what components actually improve the overall quality.
 
-\cite{bettenburg2008makes} analyzed what 
+Bettenburg et al. \cite{bettenburg2008makes} analyzed what 
 makes for a good bug report through qualitative analysis. They interviewed over
 450 developers and asked them what are the most important features for them in
 a bug report that help them solve the issue quicker. They reached the conclusion 
 that stack traces and steps to reproduce increased the quality of a bug report 
-the most, followed by well-written, grammar error free summaries and 
+the most, followed by well-written summaries and 
 descriptions. Last but not least, they also created a tool called CueZilla that 
-could with an accuracy rate between 31 and 48\% predict the quality of a bug 
-report. Even though this paper is one of the very few that created a tool
+could predict the quality of a bug report with an accuracy rate of around 50\%.
+Even though this paper is one of the very few that created a tool
 similar to what my research revolves around, the industry has not been interested
 in it mainly because it provides quite low levels of accuracy. Therefore, I am trying
-to come up with a more comprehensive, but precise set of key elements that will increase the accuracy
-levels considerably, which in turn might be of interest to software organizations.
+to come up with a more comprehensive, but precise set of key elements that will 
+increase the accuracy levels considerably, which in turn might be of interest to 
+software organizations.
 
-Strengthening the argument that readability matters considerably in bug report 
-quality is the work of \cite{hooimeijer2007modeling}. They ran an analysis over
-27000 bug reports from the Mozilla Firefox project, looking at self-reported 
-severity, readability, daily load, submitter reputation and changes over time. 
-After running the evaluation, they not only found out about the importance of
-readability in bug reports, but also that attachment and comment counts are 
-valuable for faster triaging and that patch count, for example, does not
-contribute in the same manner as the previous two.
-
-Other interesting findings regarding the quality of a software project's tickets
-are the ones elicited in \cite{bettenburg2008duplicate}. The authors examined
+The authors of \cite{bettenburg2008duplicate} examined
 whether duplicate bug reports are actually harmful to a project or they add 
 quality. They collected big amount of data from the Eclipse project and ran
 various kind of textual and statistical analysis on the data to find answers.
 They reached the conclusion that bug duplicates contain information that is not
-present in the master reports. This additional data can be helpful for developers
-and it can also aid automated triaging techniques.
+present in the master reports. Moreover, these duplicates could aid developers
+in finding out more information regarding the issue that needs to be fixed.
 
-However, in order to model the quality of a bug report, one needs to be able to
-successfully extract various types of information from such a report and, if 
-possible, link them to the source code of the project (i.e. source code fragments
-in bug report discussions should be linked to the corresponding sections in the 
-actual code) or other software artifacts. There are several researches that tried 
-to analyze such techniques and one of them is the work of 
-\cite{bettenburg2012using}. The authors created a tool that could parse a bug 
-report (using fuzzy code search) and extract source code that could then be
-matched with exact locations in the source code, in the end producing a 
+In order to model the quality of a bug report, one needs to be able to
+successfully extract various types of information from such a report. Also, if 
+possible, it would be beneficial to be able to link them to the source code of the 
+project (i.e. source code fragments in bug report discussions should be linked to 
+the corresponding sections in the actual code) or other software artifacts. 
+There are several researches that tried to analyze such techniques and one of them 
+is the paper from Bettenburg et al. \cite{bettenburg2012using}. The authors created a 
+tool that could parse a bug 
+report and, using fuzzy code search, extract source code that could then be
+matched with exact locations in the source code. Eventually, the tool produces a 
 traceability link (i.e. tuple containing a clone group ID and file paths 
-corresponding to the source code files). Evaluation showed an increase of
-roughly 20\% in total traceability links between issue reports and source code 
-when compared to the current state-of-the-art technique, change log analysis.
+corresponding to the source code files). Compared to the current state-of-the-art
+technique, change log analysis, this method improved the accuracy by over 20\%.
 
 However, Kim et al. \cite{kim2013should} propose a rather different technique.
-The authors employed a two-phase recommendation model that would locate the 
+The authors employed a two-phase recommendation model that could locate the 
 necessary fixes based on information in bug reports:
   \begin{itemize}
     \item firstly, they did a feature extraction on the bug reports (e.g. 
     extract description, summary, metadata);
-    \item secondly, in order to successfully predict
-    locations, this model was trained on the previously collected bug reports so that,
-    when given a new bug report, it could automatically reveal where the necessary fixes
-    needed to be applied;
+    \item secondly, in order to make successful predictions, this model was trained 
+    on the previously collected bug reports so that, when given a new bug report, 
+    it could automatically reveal where the necessary fixes needed to be applied;
     \item the actual implementation was put into place, and that
     is the two phase recommendation model, composed of binary (filters out 
     uninformative bug reports before predicting the files to fix) and multiclass (
     previously filtered bug reports are used as training data and only after that
     new bug reports can be analyzed and files to be changed recommended); the 
-    overall accuracy was above the one achieved by \cite{bettenburg2012using}, 
+    overall accuracy was above the one achieved by Bettenburg et al. \cite{bettenburg2012using}, 
     being able to rank over 70\%, but only as long as it recommended \emph{any} 
     locations.
   \end{itemize}
 
 %====================================================
-\section{Bug Report Modelling}
+\section{Bug Tracking Systems and Bug Report Modelling}
 \label{sec:bug-report}
 %====================================================
 
@@ -343,6 +314,16 @@ easier. This piece of research comes with conclusions which are very
 valuable to my work, especially as the authors have also published a 
 technical report \cite{breu2009appendix} where they present all the findings.
 
+The work of Herraiz et al. \cite{herraiz2008towards}, compared to the ones
+presented earlier, looks specifically at Eclipse bug reports and concludes,
+based on statistical analysis, that bug reports should be simplified and 
+only the most vital information should be asked from users, especially as
+most do not have the time or do not find the task too valuable to complete
+longer reports. These findings are strenghtened by the work of 
+Panjer \cite{panjer2007predicting}, where he shows that many bug reports
+take much longer than necessary due to the overcomplication of the bug 
+report.
+
 A very important paper that is similar to my own research is the one 
 published by Baysal et al.\cite{baysal2013situational}. The authors
 have looked into how to personalize an issue tracking system based on the
@@ -385,7 +366,27 @@ these findings and try to make it more experienced reporter focused.
 \label{sec:conclusion}
 %====================================================
 
+Having analyzed state-of-the-art approaches at how to model quality in bug reports,
+as well as what makes for good bug reporting systems, I have gained valuable
+insights for my own research and how I would like to proceed with the grant 
+proposal report.
 
+Firstly, I would like to develop a tool that can identify what is valuable in a 
+ticket using the papers presented in Section \ref{sec:ticket-quality} using multiple
+open source repositories such as Apache's projects and Mozilla Firefox. Then, 
+I would like to inspect modern bug tracking systems, such as Jira, and see what fields
+are necessary when creating a new bug report (e.g. Apache uses Jira for most of its
+open source projects, thus that would be a good starting point). Afterwards, 
+I will use my knowledge gained from reading the papers depicted in 
+Section \ref{sec:bug-report} to gather the most important questions that the reporter
+needs to be asked and infer the best format for the bug report based on the specific
+project and the underlying technologies. The resulting bug report model will then be
+tested probably using machine learning algorithms in order to test its efficiency.
+
+Undergoing this literature review, I believe I have gathered enough relevant 
+information to proceed with my research and maybe include other collaborators that 
+could aid in testing the approach by giving access to some open source projects and
+applying the algorithm directly in their bug tracking systems.
 
 
 \let\oldbibliography\thebibliography
