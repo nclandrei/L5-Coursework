@@ -323,11 +323,85 @@ successfully visualize the tracked features and illustrate their non apparent
 dependencies which can prove very useful in projects with a large number of
 components.
 
-
 %====================================================
 \section{Measuring Cost and Waste in Software Projects}
 \label{sec:measuring-waste}
 %====================================================
+
+Having talked about data and ticket quality and its characteristics, we have 
+another issue that inevitably arises in every software project: software waste. 
+There are different researches that try to define what waste in software 
+development is as well as its main types. One such paper is the one of 
+\cite{sedano2017software}. The authors conducted a participant-observation 
+study over a long period of time at Pivotal, a consultancy software development
+company. They also interviewed multiple engineering and balanced theoretical 
+sampling with analysis to elicit the following main types of waste in software
+project:
+  \begin{itemize}
+    \item building the wrong feature or product;
+    \item mismanaging backlog;
+    \item extraneous cognitive load;
+    \item rework;
+    \item ineffective communication;
+    \item waiting/multitasking;
+    \item solutions too complex;
+    \item psychological distress.
+  \end{itemize}
+
+Even though \cite{sedano2017software} look at waste generally in software 
+development, \cite{ikonen2010exploring} try to specifically investigate waste
+in kanban-based projects. They controlled a case study research at a company 
+called Software factory using semi-structured interviews. The authors reached
+two main conclusions:
+  \begin{itemize}
+    \item they couldn't explain the success of the project even though waste was 
+      found;
+    \item they identified 7 main types of waste throughout various development
+      stages: partially done work, extra processes, extra features, task 
+      switching, waiting, motion and defects.
+  \end{itemize}
+Apart from building the wrong feature/product, the 2 works differ in what types
+of waste they identified.
+
+However, defining waste and its main types is not enough - one needs also
+ways to identify such waste. \cite{Korkala2014WasteIdentification} propose a
+technique to identify communication waste in agile software projects 
+environments. The authors collaborated with a medium-sized American software 
+company and conducted a series of observations, informal discussions, documents 
+provided by the organization, as well as semi-structured interviews. Moreover,
+the data collection for waste identification was split into 2 parts:
+  \begin{itemize}
+    \item \textbf{pre-development}: occurred before the actual implementation
+      begun (e.g.\ backlog creation);
+    \item \textbf{development}: happened throughout the implementation
+      process (e.g.\ throughout sprints, retrospectives, sprint reviews,
+      communication media).
+  \end{itemize}
+They reached two main conclusions:
+  \begin{itemize}
+    \item this proposed approach was efficient and the authors recommend it to
+      companies if they'd like to conduct such processes internally;
+    \item the research elicits 5 main categories for communication waste: lack
+      of involvement, lack of shared understanding, outdated information, 
+      restricted access to information, scattered information.
+  \end{itemize}
+
+Another work that is trying to analyze the waste around software coordination activities
+is the one of \cite{aranda2009secret}. They are trying to understand common bug fixing
+coordination activities in terms of software projects coordination and propose different
+directions on how to implement proper tools. They conducted a field study which was
+split into two parts:
+  \begin{itemize}
+    \item led an exploratory case study of bug repositories histories;
+    \item then, they conducted a survey with professionals (e.g. testers, developers).
+  \end{itemize}
+After they finished the 2 phases, they learned that there are multiple factors which
+influence the coordination activities that revolve around bug fixing, such as organizational,
+social and technical knowledge, thus one cannot infer any conclusions only by automatic analysis 
+of the bug repositories. Also, through surveying the professionals, they reached the conclusion
+that there are \emph{eight main goals} which can be used for better tools and practices: summit, 
+probing for ownership, probing for expertise, code review, triaging, rapid-fire emailing, 
+shotgun emails and infrequent/direct email.
 
 \section{Discussion and Conclusion}
 \label{sec:conclusion}
