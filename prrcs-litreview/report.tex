@@ -245,9 +245,9 @@ valuable for faster triaging and that patch count, for example, does not
 contribute in the same manner as the previous two.
 
 Another research that agrees that stack traces are helpful in solving bug
-reports faster is the one performed by \cite{schroter2010stack}. They conducted
+reports faster is the one performed by Schroter et al. \cite{schroter2010stack}. They conducted
 the whole experiment on the Eclipse project. They first extracted the stack
-traces using the infoZilla tool\cite{bettenburg2008extracting}, followed by
+traces using the infoZilla tool \cite{bettenburg2008extracting}, followed by
 linking the stack traces to changes in the source code (change logs) by mining
 the version repository of the Eclipse project. The results showed that 
 around 60\% of the bugs that contained stack traces in their reports were fixed
@@ -255,13 +255,6 @@ in one of the methods in the frame, with 40\% being fixed in exactly the first
 stack frame. Stacktraces are of key interest to my research as well, thus I will 
 try to apply the methodology developed by the authors of this paper to my
 own research. 
-
-After examining the work of \cite{bettenburg2007quality}, we noticed that
-the authors found very similar results to the ones presented in the research 
-of \cite{bettenburg2008makes}. They performed the same type of evaluation method (i.e. 
-interviews with developers) and confirmed that steps to reproduce and stack traces
-are the most important features in a bug report that help developers solve the
-issue quicker.
 
 Other interesting findings regarding the quality of a software project's tickets
 are the ones elicited in \cite{bettenburg2008duplicate}. The authors examined
@@ -285,12 +278,6 @@ traceability link (i.e. tuple containing a clone group ID and file paths
 corresponding to the source code files). Evaluation showed an increase of
 roughly 20\% in total traceability links between issue reports and source code 
 when compared to the current state-of-the-art technique, change log analysis.
-
-\cite{bettenburg2012using} also made use of a tool developed by 
-\cite{bettenburg2008extracting} called infoZilla. This application can
-parse bug reports and correctly extract patches, stack traces, source code and
-enumerations. The authors evaluated it on the Eclipse project, where they saw
-an accuracy level of over 97\% across more than 150,000 bug reports.
 
 However, Kim et al. \cite{kim2013should} propose a rather different technique.
 The authors employed a two-phase recommendation model that would locate the 
@@ -319,6 +306,19 @@ necessary fixes based on information in bug reports:
 
 Bug report modelling based on context is the topic of my research and in this
 section I will present the related work that has been previously published.
+
+Firstly, I needed to look at how people actually write bug reports,
+thus the work of Ko et al. \cite{ko2006linguistic} proved valuable. The
+authors inspected how end users tend to write bug reports and developed 
+tools to linguistically analyze them. They parsed and tokenized the report
+titles so that the engineers could streamline the whole software development
+process and automate certain tasks. Moreover, being able to analyze
+report titles and descriptions could also aid in finding duplicates, thus
+increasing the overall efficiency of the bug tracking system. This paper,
+even though has limitations in that the number of reports analyzed was
+not large, proves quite beneficial for my research as if the tool would
+be made accessible by the authors, I could easily parse report titles
+and then optimize by automatic bug report modelling.
 
 Just et al.\cite{just2008towards} investigated what are the flaws in 
 modern issue tracking systems and what should be changed to make the development
@@ -377,6 +377,8 @@ developers have the ability of tracking their own progress and also maintain
 progress awareness across the whole project. I will try to develop my
 own automatic contextual bug report modelling building on top of the findings
 brought by this paper.
+
+
 
 
 
