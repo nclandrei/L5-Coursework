@@ -156,16 +156,6 @@ complaints regarding data not supporting their tasks are incomplete data,
 inadequately defined or measured data and data that could not be appropriately
 aggregated.
 
-The work of Kitchenham et al.\cite{kitchenham1996software} looks specifically at defining
-quality in a software project, as well as finding who the people in charge of this 
-are and how they should approach achieving it. They tried to define quality 
-in software projects and analyze techniques that measure such metrics by looking
-at other models proposed in different researches. However, they learned that quality is very hard to define and
-there are various factors which need to be taken into consideration, such as the
-business model of the company, the type of the software project (e.g. safety 
-critical, financial sector) or the actors who are involved and how they coordinate
-the software activities. 
-
 Stamelos et al. \cite{stamelos2002code} tried to discuss and examine the quality
 of the source code delivered by open source projects. They used a set of tools
 that could automatically inspect various aspects of source code, looking at
@@ -243,18 +233,6 @@ After running the evaluation, they not only found out about the importance of
 readability in bug reports, but also that attachment and comment counts are 
 valuable for faster triaging and that patch count, for example, does not
 contribute in the same manner as the previous two.
-
-Another research that agrees that stack traces are helpful in solving bug
-reports faster is the one performed by Schroter et al. \cite{schroter2010stack}. They conducted
-the whole experiment on the Eclipse project. They first extracted the stack
-traces using the infoZilla tool \cite{bettenburg2008extracting}, followed by
-linking the stack traces to changes in the source code (change logs) by mining
-the version repository of the Eclipse project. The results showed that 
-around 60\% of the bugs that contained stack traces in their reports were fixed
-in one of the methods in the frame, with 40\% being fixed in exactly the first
-stack frame. Stacktraces are of key interest to my research as well, thus I will 
-try to apply the methodology developed by the authors of this paper to my
-own research. 
 
 Other interesting findings regarding the quality of a software project's tickets
 are the ones elicited in \cite{bettenburg2008duplicate}. The authors examined
@@ -378,9 +356,29 @@ progress awareness across the whole project. I will try to develop my
 own automatic contextual bug report modelling building on top of the findings
 brought by this paper.
 
+A rather different point of view is the one presented in the research
+of Bertram et al. \cite{bertram2010communication}, where they state that
+issue tracking systems are not only a database for storing bug reports,
+but also a communication center where stakeholders discuss with developer
+about various aspects of the project. The authors conducted interviews with
+members of small teams where they asked them what did they find most beneficial
+in such tracking systems. They found that most people involved consider
+bug tracking systems serve multiple purposes, especially organizational and
+communication ones, apart from being databses of bug reports. I do aggree 
+with their findings, but I believe that a major limitation of the research
+is that their target teams have been only small ones, as large ones might
+answer differently, especially since they dispose of multiple means of 
+communicating (e.g. chat services such as Slack which can be integrated 
+with bug repositories, but are not part of them).
 
-
-
+However, the difference in reporters needs to be taken into account. The 
+paper published by Ko et al. \cite{ko2010power} looks at how regular 
+contributors to a bug tracking system can help the project move forward. 
+Even more, the authors suggest that projects in general should mostly 
+focus their attention on recruiting such talented reporters rather than
+deriving value from the large masses of regular reporters. This is valuable
+to my research because I will design my bug report model based on 
+these findings and try to make it more experienced reporter focused.
 
 %====================================================
 \section{Discussion and Conclusion}
