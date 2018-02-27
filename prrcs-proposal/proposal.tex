@@ -1,0 +1,85 @@
+\documentclass[11pt,english,twocolumn]{article}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pslatex}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{setspace}
+\usepackage{url}
+%Definitions from Simon's mya4.sty
+% Set the paper size to A4
+\setlength{\paperheight}{297mm}
+\setlength{\paperwidth}{210mm}
+% Define commands which allow the width and height of the text
+% to be specified. Centre the text on the page.
+\newcommand{\settextwidth}[1]{
+\setlength{\textwidth}{#1}
+\setlength{\oddsidemargin}{\paperwidth}
+\addtolength{\oddsidemargin}{-\textwidth}
+\setlength{\oddsidemargin}{0.5\oddsidemargin}
+\addtolength{\oddsidemargin}{-1in}
+}
+\newcommand{\settextheight}[1]{
+\setlength{\textheight}{#1}
+\setlength{\headheight}{0mm}
+\setlength{\headsep}{0mm}
+\setlength{\topmargin}{\paperheight}
+\addtolength{\topmargin}{-\textheight}
+\setlength{\topmargin}{0.5\topmargin}
+\addtolength{\topmargin}{-1in}
+}
+\addtolength{\topsep}{-3mm}% space between first item and preceding paragraph.
+\addtolength{\partopsep}{-3mm}% extra space added to \topsep when environment starts a new paragraph.
+\addtolength{\itemsep}{-5mm}% space between successive items.
+
+%End of Simon's mya4.sty
+\usepackage{graphicx}%This is necessary and it must go after mya4
+\settextwidth{176mm}
+\settextheight{257mm}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\def\baselinestretch{0.95}
+
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*1}{*1}
+\titlespacing{\subsection}{0pt}{*1}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+\titlespacing{\paragraph}{0pt}{*0}{*1}
+\titleformat*{\paragraph}{\itshape}{}{}{}
+%% --------------------------------------------------------------------------------------------------------------------------------
+\begin{document}
+\title{This is the title}
+
+\author{Author}
+\date{}
+\maketitle
+
+
+%====================================================
+%\section{Track Record}
+%====================================================
+
+
+%====================================================
+\section{Section Title}
+\label{sec:label-section}
+%====================================================
+
+
+%-------------------------------------------
+\subsection*{Subsection Title}
+\label{sec:label-subsection}
+%-------------------------------------------
+
+
+\let\oldbibliography\thebibliography
+\renewcommand{\thebibliography}[1]{\oldbibliography{#1}
+\setlength{\itemsep}{-3pt}}
+
+\bibliographystyle{abbrv}
+%\setstretch{0.8}
+{
+\scriptsize
+\bibliography{bib_file}
+}
+\end{document}
