@@ -57,28 +57,68 @@
 %====================================================
 \section{Research Problem}
 
-\subsection{Background}
+\subsection*{Background}
 
+In recent years, software engineering has been shaping many industries that were previously
+considered unrelated to technology, ranging from healthcare to public transportation
+and education. As software has grown and inflicted itself into so many fields, it has 
+inherently become more complex and it now involves teams of even hundreds of developers working
+remotely or in the same office on applications that can shape even the face of a nation, such
+as Estonia's data exchange layer called X-Road\cite{x-road}.
 
+Therefore, having such a high number of developers working on complex applications, there 
+has been a need for software engineers to plan, track and manage the workload for increased 
+efficiency. Thus, issue tracking systems have been created, which usually incorporate multiple
+components into a single, unified interface. The main component, however, of any issue tracking system
+is called a \emph{ticket}. A ticket is comprised of all the necessary information for either
+fixing a bug (i.e. specific malfunction of the application) or implementing a new feature 
+(i.e. new functionality for the software). However, after an application is released and 
+it starts to get used by actual end users, the most common ticket found in issue tracking systems
+is a bug report, stating what went wrong inside the application, how it can be reproduced,
+even possible locations in the source code where the malfunction might originate from.
 
-\subsection{Key Ideas in a Nutshell}
+Typically, the people who file the bug reports are actual end users who go onto the project's
+issue tracking system website and complete the necessary data required by that system. 
+Once the bug report is filed in the tracking systen, triagers are responsible for assigning
+that ticket to developers to get fixed. Bettenburg et. al \cite{bettenburg2008makes} have 
+conducted interviews with developers and they have gathered valuable data related to what
+makes for a good bug report and what are the key characteristics that
+help them fix the bug as quickly as possible. One result presented by this research is that
+having stack traces (i.e. list of methods in the source code which were called when an exception
+was thrown) in the description field of the bug report helps developers fix the bug quicker.
+However, even with this information available, the fields displayed in the bug report
+for the end users to complete (e.g. summary of the bug, description, attachments) are standard
+across all the different issue tracking systems.
 
-\subsection{Research Objectives}
+Having the optimal bug report model/design for end users to complete would be beneficial for both 
+the software development team, as well as the overall costs incurred by the company producing
+the application. Therefore, the main goal of this proposed project is to create a tool 
+that can automatically generate the optimal bug report model for any specific project taking 
+into account the characteristics of that project or the team behind it (e.g. size of the
+development team, technologies used, mobile/desktop application). Even though there is 
+state-of-the-art research in this field, such as the work of Zimmermann et al.\cite{zimmermann2009improving},
+they only look into what can be done and propose only advice to issue tracking systems developers.
+However, our work goes one step further and we want to conduct the first research in this area
+that actually gives the community a tool which can automatically fix this issue.
 
-\subsection{State of the Art}
+\subsection*{Key Ideas in a Nutshell}
 
-\subsection{Intended Solutions}
+\subsection*{Research Objectives}
 
-\subsection{Innovative Aspects}
+\subsection*{State of the Art}
+
+\subsection*{Intended Solutions}
+
+\subsection*{Innovative Aspects}
 
 %====================================================
 \section{Methodology}
 
-\subsection{...(WP1)}
+\subsection*{...(WP1)}
 
-\subsection{...(WP2)}
+\subsection*{...(WP2)}
 
-\subsection{...(WP3)}
+\subsection*{...(WP3)}
 
 %====================================================
 \section{Measurable Outcomes}
