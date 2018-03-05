@@ -310,6 +310,28 @@ to the community.
 
 \subsection*{Inspection and analysis of bug report models for popular projects (WP1)}
 
+We will first select a handful among the most popular open source projects to scrape.
+We have decided that the first two will be the Mozilla and Eclipse projects which also have
+their issue tracking systems available to everyone. We will use state-of-the-art techniques
+to mine them, such as the ones proposed by Kalliamvakou et. al \cite{kalliamvakou2014promises} 
+and German et. al \cite{german2016continuously}. After scraping the issue tracking systems
+of these projects, we will then store everything in a database for easy access and ability
+to query. 
+
+Then, we will categorize different bug report models based on their components and how
+they differ. Also, we will look at the different designs between, for example, Jira and Bugzilla.
+Moreover, we want to scrape the project's specific characteristics, such as:
+	\begin{itemize}
+		\item number of developers and their organization into teams;
+		\item technologies used;
+		\item geographical and demographics attributes (e.g. geographical position of the 
+		developers, languages used);
+		\item typical work schedule and work flow of the developers.
+	\end{itemize}
+\textbf{Deliverables:} data mining tool capable of scraping multiple components, such as 
+active directories, version controlled repositories and issue tracking systems; database of
+bug report models and their components.
+
 \subsection*{Measure effectiveness for different bug report models (WP2)}
 
 \subsection*{Identity specific components that influenced bug report model effectiveness (WP3)}
