@@ -256,8 +256,41 @@ effectiveness in the context of the software development process.
 
 After running our analysis on bug report models and their effectiveness, the next step
 would be to start developing the tool which will automatically generate the best bug
-report model for the project.
+report model for the project. Firstly, we connect our application to the version control
+in order to obtain statistics regarding both the software project as well as the work flows
+of the developers. Then, we also hook the tool to the active directory in order to infer the
+size of the team, how it is distributed geographically, typical working hours, languages used
+etc. Afterwards, we get data from the issue tracking system regarding what type of system it is,
+what components and options are available in the bug report model and what can the end user 
+reporting the bug see or edit. Finally, we run our tool based on all the data availabe 
+and retrieve the best possible design for the bug report, tailored specifically for the project.
 
+Figure \ref{diagram} shows the whole flow that we want 
+to apply to our application.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{diagram}
+	\caption{Flow of the application}
+	\label{diagram}
+\end{figure}
+
+As the development of the tool is ongoing, we would like to run the evaluation process in
+parallel. We have already discussed with the Mozilla Foundation as well as with the Eclipse
+project and they have agreed to let us run the tool once it is available. Firstly, we want to 
+conduct interviews with managers, triagers and developers in order to test the validity of
+the app and if it actually improves the work flow of the project. Then, we also want to track 
+the bug reporters' behavior and see how many abandon reporting the bug, as well as what their
+feedback is on the new format.
+
+Finally, we want to publish our application in the open source world as we believe it would
+benefit everyone to use it. Moreover, the application could be greatly improved by having 
+a large number of experienced developers contributing to it.
+
+\textbf{Example:} Revisiting the Health Digital Services example, they are using Jira as their
+issue tracking system. Usinng our tool, we could get all the necessary information to capture
+the context and then provide them with the best bug report model so that the software 
+development process is improved.
 
 \subsection*{Innovative Aspects}
 
