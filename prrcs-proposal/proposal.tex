@@ -363,24 +363,87 @@ bug report models and their components.
 \subsection*{Measure effectiveness for different bug report models (WP2)}
 
 Having the data available from WP1, we will investigate how effective are the bug report
-models for their project. As issue tracking systems make available bug report drafts and 
-statistics regarding how many people file bug reports or how many of them decide to abandon
-throughout the process, we can infer how effective are these designs. By effective, in this
-context, we refer to an average between successful bug reports filed, length of conversation 
-corresponding to the bug report (i.e. how many comments were required in order to clarify 
-the ticket to the developers) as well as the time it took to solve the ticket taking into 
-account the difficulty of the bug as well.
+models for their project. 
 
-Firstly, we will mine all the data regarding to bug reports statistics. Then, we will infer
-some scores regarding how effective they are overall. 
+As issue tracking systems make available bug report drafts and 
+statistics regarding how many people file bug reports or how many of them decide to abandon
+throughout the process, we can infer how effective are these designs. Moreover, we can also 
+see which components of the model are completed most often, as well as if there are fields 
+which the users find unnecessary.
+
+Then, we want to inspect the conversational aspects of the bug report, and more specifically 
+the comments on that ticket. We assume that having a large number of comments for clarifying
+the context of the issue or how it can be reproduced implies that the bug report model is 
+inefficient and it does not force the users to provide all the necessary details for the developers.
+Moreover, we also assume that having a negative tone attached to the conversation implies that 
+the bug report model is not optimal for the project.
+
+Finally, we want to group all tickets in terms of difficulty and analyze the time it took to 
+get fixed taking into consideration all the completed fields and the options selected. 
+
+\textbf{Deliverable:} Data that links the bug report model and its characteristics to a 
+level of effectiveness.
 
 \subsection*{Identity specific components that influenced bug report model effectiveness (WP3)}
+
+Having all the data available from WP2, we will to take a closer look at what components 
+influenced the most the effectiveness of the bug report model. More specifically, we will
+investigate the following fields (they can be found in any bug report model on any issue 
+tracking system):
+	\begin{itemize}
+		\item summary - short description of the bug;
+		\item description - more detailed description of the bug where users can include 
+		stacktraces or steps to reproduce;
+		\item attachments - screenshots or snippets or code that the users can attach to 
+		help the developers locate the problem easier;
+		\item comments - discussion between users and developers on the ticket;
+		\item environment - details regarding what platform were the users using when the 
+		bug occured, network connection, version of the application etc.
+	\end{itemize}
+
+Moreover, we will look into which of these fields actually proved useful for the developers 
+and if they were made required by the issue tracking system (or if the system gives the 
+developers the ability to make them required in a user-friendly manner). 
+
+Then, we will investigate if the issue tracking system takes into consideration the characteristics
+of the project. More specifically, we want to see if, for example Jira, automatically changes 
+the bug report model based on the size of the development team or their typical work flow. 
+
+\textbf{Deliverable:} Map of specific components to project's specific characteristics that
+influence effectiveness the most.
 
 \subsection*{Automatically design bug report models optimized per project (WP3)}
 
-\subsection*{Evaluation of the effectiveness of the tool (WP3)}
+The major work product of our research will be the design, implementation and testing of the 
+tool. We have decided that we want to write our tool in Go, mostly because of its 
+simplicity, well defined standards as well as great concurrent capabilities \cite{forsby2015evaluation}.
 
-\subsection*{Identity specific components that influenced bug report model effectiveness (WP3)}
+We will use all the data and statistics collected in the previous work products and produce
+an app that can successfully take as input all the project's characteristics, the issue tracking
+system used, the current bug report models, what are the most effective components and then 
+output a design that is tailored specifically for the project.
+
+\textbf{Deliverable:} Tool that can create a bug report model tailored specifically for the 
+project given as input.
+
+\subsection*{Evaluation of the effectiveness of the tool (WP4)}
+
+We want to run the evaluation of the tool continuously throughout the whole development phase. 
+As mentioned before, we have already agreed with Mozilla and Eclipse to try out our tool on 
+their projects, therefore we will get valuable insights right from the beginning.
+
+Moreover, we want to team up with several academics from prestigious UK universities in order 
+to improve the tool continuously. Also, we want to conduct interviews with developers on the 
+projects under investigation every month so that they can tell us if the designs generated 
+by our tool are valuable for them. Moreover, we also want to interview triagers and managers 
+on the team to check if our models are helping them track and manage the project easier.
+
+Finally, we want to run statistical analysis and infer, from a quantitative point of view,
+whether our auto-generated designs are more effective than the standard ones used previously 
+by the projects.
+
+\textbf{Deliverable:} data collected through interviews and statistical analysis in order 
+to infer the quality of our tool.
 
 %====================================================
 \section{Measurable Outcomes}
