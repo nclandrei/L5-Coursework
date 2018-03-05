@@ -245,14 +245,36 @@ large databases of bug reports, such as the ones from the Mozilla project or the
 will help us gather enough data to make our tool accurate. Moreover, we want to also use the
 information available in the appendix created by Breu et. al \cite{breu2009appendix} 
 so that we can infer components and possible options available in bug report models from
-issue tracking systems.
+issue tracking systems. Other data that is available to us is also the collection of 
+statistics on bug reports - for example, we can see how many people successfully managed
+to file bug reports, how many dropped throughout the process etc. We would like to also 
+store this data inside our database for analysis.
 
 Then, after scraping all the data and having it available in a database, the next step is
 to measure effectiveness of these bug report models so that we can infer what components
 or differences in design make the model be more beneficial for the developers. Using the
 techniques presented in the works of Bettenburg et. al \cite{bettenburg2008makes} and 
-Aranda et. al \cite{aranda2009secret}, we will effectively be able to measure the model's 
-effectiveness in the context of the software development process.
+Aranda et. al \cite{aranda2009secret}, we will be able to measure the model's 
+effectiveness in the context of the software development process. In order to measure 
+effectiveness, we are looking at a couple of attributes:
+	\begin{itemize}
+		\item ratio of people who successfully managed to file bug reports;
+		\item length of the conversation corresponding to the ticket (i.e. number of 
+		comments needed to clarify the issue to the developers), as well as running 
+		sentiment analysis on the conversation to infer whether the discussion had a 
+		negative or a positive tone;
+		\item time period between opening and closing a ticket, taking into account 
+		the difficulty of that ticket.
+	\end{itemize}
+In order to investigate the conversational characteristics of the discussions surrounding
+bug reports, we want to use state-of-the-art sentiment analysis techniques. dos Santos et. al 
+\cite{dos2014deep} looked into how deep convolutional neural networks can help run sentiment 
+analysis of short text, which is suitable for our research as the comment body is rather 
+short, the limit being usually imposed by the issue tracking system. Moreover, another 
+technique which we will try in our project is the one proposed in the research of 
+Khan et. al \cite{khan2015combining} where they show how lexicon-based and learning-based
+techniques can infer the sentiment from tweets. In terms of the platform of choice, we 
+decided on using the sentiment analysis APIs available from Google Cloud Platform \cite{gcp}.
 
 After running our analysis on bug report models and their effectiveness, the next step
 would be to start developing the tool which will automatically generate the best bug
@@ -305,6 +327,12 @@ conducted a research where they concluded that machine learning, one of the most
 areas in the computer science field, suffers from not having many open source tools available
 to the community.
 
+Another innovative aspect of our application will be that it will use state-of-the-art sentiment
+analysis on the conversations surrounding the bug reports. There are not many papers in the field 
+who have investigated the conversational aspects of bug reports, thus our research will contribute 
+valuable findings to the community regarding how much does a positive/negative tone in a list
+of comments affect the lifetime of a bug report.
+
 %====================================================
 \section{Methodology}
 
@@ -333,6 +361,18 @@ active directories, version controlled repositories and issue tracking systems; 
 bug report models and their components.
 
 \subsection*{Measure effectiveness for different bug report models (WP2)}
+
+Having the data available from WP1, we will investigate how effective are the bug report
+models for their project. As issue tracking systems make available bug report drafts and 
+statistics regarding how many people file bug reports or how many of them decide to abandon
+throughout the process, we can infer how effective are these designs. By effective, in this
+context, we refer to an average between successful bug reports filed, length of conversation 
+corresponding to the bug report (i.e. how many comments were required in order to clarify 
+the ticket to the developers) as well as the time it took to solve the ticket taking into 
+account the difficulty of the bug as well.
+
+Firstly, we will mine all the data regarding to bug reports statistics. Then, we will infer
+some scores regarding how effective they are overall. 
 
 \subsection*{Identity specific components that influenced bug report model effectiveness (WP3)}
 
