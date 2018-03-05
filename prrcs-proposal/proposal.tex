@@ -231,8 +231,32 @@ conducted a qualitative study where they interviewed a number of software engine
 then they proposed a model for bug reports that would facilitate a better functioning for 
 task planning and management. 
 
-\subsection*{Intended Solutions}
+Covering all this state-of-the-art research, as well as numerous other studies in the field,
+there is none that presents a tool which can automatically create bug report models
+tailored specifically for any given project.
 
+\subsection*{Our Solution}
+
+In order to tackle automatic contextual bug report modelling, our solution is to first 
+create a data mining tool using the recommendations given in the research conducted by 
+Kalliamvakou et. al \cite{kalliamvakou2014promises}. We want to scrape bug reports from popular 
+open source repositories and analyze their components, as well as infer common patterns. We believe that targeting 
+large databases of bug reports, such as the ones from the Mozilla project or the Eclipse project,
+will help us gather enough data to make our tool accurate. Moreover, we want to also use the
+information available in the appendix created by Breu et. al \cite{breu2009appendix} 
+so that we can infer components and possible options available in bug report models from
+issue tracking systems.
+
+Then, after scraping all the data and having it available in a database, the next step is
+to measure effectiveness of these bug report models so that we can infer what components
+or differences in design make the model be more beneficial for the developers. Using the
+techniques presented in the works of Bettenburg et. al \cite{bettenburg2008makes} and 
+Aranda et. al \cite{aranda2009secret}, we will effectively be able to measure the model's 
+effectiveness in the context of the software development process.
+
+After running our analysis on bug report models and their effectiveness, the next step
+would be to start developing the tool which will automatically generate the best bug
+report model for the project.
 
 
 \subsection*{Innovative Aspects}
